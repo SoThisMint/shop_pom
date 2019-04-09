@@ -38,5 +38,5 @@ public class Goods implements Serializable {
 
     private Date createtime;
 
-    private int pid;
+    private int tid;
 }

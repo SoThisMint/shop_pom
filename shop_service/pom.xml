@@ -11,11 +11,4 @@
 
     <artifactId>shop_service</artifactId>
 
-    <dependencies>
-        <dependency>
-            <groupId>com.qf</groupId>
-            <artifactId>shop_service_api</artifactId>
-            <version>0.0.1-SNAPSHOT</version>
-        </dependency>
-    </dependencies>
 </project>

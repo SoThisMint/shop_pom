@@ -4,10 +4,12 @@ spring:
     password: 123456
     driver-class-name: com.mysql.jdbc.Driver
     url: jdbc:mysql:///myshop
+    type: com.alibaba.druid.pool.DruidDataSource
 dubbo:
   application:
     name: goods_service
   registry:
     address: zookeeper://47.106.207.126:2182
+    check: false
 server:
   port: 9090
