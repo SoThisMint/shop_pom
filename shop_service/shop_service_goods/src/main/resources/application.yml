@@ -1,0 +1,13 @@
+spring:
+  datasource:
+    username: root
+    password: 123456
+    driver-class-name: com.mysql.jdbc.Driver
+    url: jdbc:mysql:///myshop
+dubbo:
+  application:
+    name: goods_service
+  registry:
+    address: zookeeper://47.106.207.126:2182
+server:
+  port: 9090
