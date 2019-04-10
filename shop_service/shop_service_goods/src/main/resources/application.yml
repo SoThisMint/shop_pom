@@ -10,6 +10,7 @@ dubbo:
     name: goods_service
   registry:
     address: zookeeper://47.106.207.126:2182
+  consumer:
     check: false
 server:
   port: 9090

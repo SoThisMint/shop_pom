@@ -8,6 +8,7 @@ dubbo:
     name: shop_web
   registry:
     address: zookeeper://47.106.207.126:2182
+  consumer:
     check: false
 fdfs:
   pool:
