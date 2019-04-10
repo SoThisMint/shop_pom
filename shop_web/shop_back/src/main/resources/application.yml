@@ -1,3 +1,5 @@
+server:
+  ip: 192.168.109.161
 spring:
   thymeleaf:
     cache: false
@@ -7,3 +9,11 @@ dubbo:
   registry:
     address: zookeeper://47.106.207.126:2182
     check: false
+fdfs:
+  pool:
+    jmx-enabled: false
+  thumb-image:
+    height: 100
+    width: 100
+  tracker-list:
+    - 192.168.109.161:22122

@@ -36,7 +36,7 @@ public class Goods implements Serializable {
 
     private int status;
 
-    private Date createtime;
+    private Date createtime = new Date();
 
     private int tid;
 }

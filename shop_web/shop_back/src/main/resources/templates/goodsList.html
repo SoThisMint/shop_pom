@@ -1,26 +1,23 @@
 <!DOCTYPE html>
 <html lang="en" xmlns:th="http://www.thymeleaf.org">
 <head>
-    <base th:href="${#request.getContextPath()+'/'}" />
+    <base th:href="${#request.getContextPath()+'/'}"/>
     <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
     <title>Insert title here</title>
     <!-- Invalid Stylesheet. This makes stuff look pretty. Remove it if you want the CSS completely valid -->
     <!-- Reset Stylesheet -->
     <link rel="stylesheet" href="resources/css/reset.css" type="text/css"
-          media="screen" />
+          media="screen"/>
     <!-- Main Stylesheet -->
     <link rel="stylesheet" href="resources/css/style.css" type="text/css"
-          media="screen" />
+          media="screen"/>
     <link rel="stylesheet" href="resources/css/invalid.css" type="text/css"
-          media="screen" />
+          media="screen"/>
 
     <!--                       Javascripts                       -->
     <!-- jQuery -->
     <script type="text/javascript"
-            src="resources/scripts/jquery-1.3.2.min.js"></script>
-    <!-- jQuery Configuration -->
-    <script type="text/javascript"
-            src="resources/scripts/simpla.jquery.configuration.js"></script>
+            src="resources/scripts/jquery-1.8.3.min.js"></script>
 </head>
 <body>
 <div id="main-content">
@@ -31,7 +28,7 @@
                 <table>
                     <thead>
                     <tr>
-                        <th><input class="check-all" type="checkbox" /></th>
+                        <th><input class="check-all" type="checkbox"/></th>
                         <th>商品名称</th>
                         <th>商品图片</th>
                         <th>商品价格</th>
@@ -41,51 +38,39 @@
                     </thead>
                     <tbody>
                     <tr th:each="g : ${goods}">
-                        <td><input type="checkbox" /></td>
-                        <td th:text="${g.getGname()}">Lorem ipsum dolor</td>
-                        <td><img th:src="${g.getGimage()}" alt=""></td>
-                        <td th:text="${g.getGprice()}">Consectetur adipiscing</td>
-                        <td th:text="${g.getGsave()}">Donec tortor diam</td>
+                        <td><input type="checkbox"/></td>
+                        <td th:text="${g.gname}">Lorem ipsum dolor</td>
+                        <td><img style="width: 60px;height: 50px;"
+                                 th:src="|http://${ip}/${#strings.setSplit(g.gimage,'|')[0]}|" alt=""></td>
+                        <td th:text="${g.gprice}">Consectetur adipiscing</td>
+                        <td th:text="${g.gsave}">Donec tortor diam</td>
                         <td>
                             <!-- Icons --> <a href="#" title="Edit"><img
-                                src="resources/images/icons/pencil.png" alt="Edit" /></a> <a
+                                src="resources/images/icons/pencil.png" alt="Edit"/></a> <a
                                 href="#" title="Delete"><img
-                                src="resources/images/icons/cross.png" alt="Delete" /></a> <a
+                                src="resources/images/icons/cross.png" alt="Delete"/></a> <a
                                 href="#" title="Edit Meta"><img
                                 src="resources/images/icons/hammer_screwdriver.png"
-                                alt="Edit Meta" /></a>
+                                alt="Edit Meta"/></a>
                         </td>
                     </tr>
                     </tbody>
                     <tfoot>
                     <tr>
-                        <td colspan="6">
-                            <div class="bulk-actions align-left">
-                                <select name="dropdown">
-                                    <option value="option1">Choose an action...</option>
-                                    <option value="option2">Edit</option>
-                                    <option value="option3">Delete</option>
-                                </select> <a class="mybutton" href="#">Apply to selected</a>
-                            </div>
-                            <div class="pagination">
-                                <a href="#" title="First Page">&laquo; First</a><a href="#"
-                                                                                   title="Previous Page">&laquo; Previous</a> <a href="#"
-                                                                                                                                 class="number" title="1">1</a> <a href="#" class="number"
-                                                                                                                                                                   title="2">2</a> <a href="#" class="number current" title="3">3</a>
-                                <a href="#" class="number" title="4">4</a> <a href="#"
-                                                                              title="Next Page">Next &raquo;</a><a href="#"
-                                                                                                                   title="Last Page">Last &raquo;</a>
-                            </div> <!-- End .pagination -->
-                            <div class="clear"></div>
+                        <td>
+                            <button class="mybutton" onclick="window.location.href='toPage/goodsAdd'">添加商品</button>
                         </td>
                     </tr>
                     </tfoot>
                 </table>
             </div>
         </div>
-        <!-- End .content-box-content -->
     </div>
 </div>
 <!-- End #main-content -->
+<script type="text/javascript">
+
+</script>
+
 </body>
 </html>
