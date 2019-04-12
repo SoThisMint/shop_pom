@@ -1,5 +1,7 @@
 package com.qf.entity;
 
+import com.baomidou.mybatisplus.annotation.IdType;
+import com.baomidou.mybatisplus.annotation.TableId;
 import com.baomidou.mybatisplus.annotation.TableName;
 import lombok.AllArgsConstructor;
 import lombok.Data;
@@ -22,6 +24,7 @@ import java.util.Date;
 @TableName("goods")
 public class Goods implements Serializable {
 
+    @TableId(type = IdType.AUTO)
     private int id;
 
     private String gname;
