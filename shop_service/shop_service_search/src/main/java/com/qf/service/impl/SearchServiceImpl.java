@@ -99,21 +99,21 @@ public class SearchServiceImpl implements ISearchService {
 
     @Override
     public int insertGoods(Goods goods) {
-        //将goods对象添加到索引库中
-        SolrInputDocument document = new SolrInputDocument();
-        document.setField("id", goods.getId());
-        document.setField("gname", goods.getGname());
-        document.setField("gprice", goods.getGprice().doubleValue());
-        document.setField("gsave", goods.getGsave());
-        document.setField("gimage", goods.getGimage());
-
-        try {
-            solrClient.add(document);
-            solrClient.commit();
-            return 1;
-        } catch (SolrServerException | IOException e) {
-            e.printStackTrace();
-        }
+//        //将goods对象添加到索引库中
+//        SolrInputDocument document = new SolrInputDocument();
+//        document.setField("id", goods.getId());
+//        document.setField("gname", goods.getGname());
+//        document.setField("gprice", goods.getGprice().doubleValue());
+//        document.setField("gsave", goods.getGsave());
+//        document.setField("gimage", goods.getGimage());
+//
+//        try {
+//            solrClient.add(document);
+//            solrClient.commit();
+//            return 1;
+//        } catch (SolrServerException | IOException e) {
+//            e.printStackTrace();
+//        }
         return 0;
     }
 }

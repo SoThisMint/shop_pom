@@ -10,6 +10,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
 
+import javax.servlet.http.HttpServletRequest;
 import java.io.FileWriter;
 import java.io.IOException;
 import java.util.HashMap;
@@ -37,14 +38,20 @@ public class ItemController {
      * @return
      */
     @RequestMapping("/createHtml")
-    public String createHtml(int gid){
+    public String createHtml(int gid, HttpServletRequest request){
         //通过商品id获得商品详细信息
         Goods goods = goodsService.selectById(gid);
+        String gimage = goods.getGimage();
+        String[] images = gimage.split("\\|");
 
+        //通过模板生成html页面
         try {
+            //获得商品详情的模板对象
             Template template = configuration.getTemplate("goodsItem.ftl");
             Map<String,Object> map = new HashMap<>();
             map.put("goods",goods);
+            map.put("images",images);
+            map.put("context",request.getContextPath());
             //生成静态页面
             String path = this.getClass().getResource("/static/page/").getPath()+goods.getId()+".html";
             template.process(map,new FileWriter(path));

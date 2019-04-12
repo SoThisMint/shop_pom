@@ -31,6 +31,12 @@ spring:
       web-stat-filter:
         enabled: true
         url-pattern: /*
+  rabbitmq:
+    host: 192.168.109.161
+    port: 5672
+    username: admin
+    password: admin
+    virtual-host: /admin
 dubbo:
   application:
     name: goods_service

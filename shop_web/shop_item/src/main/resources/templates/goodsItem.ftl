@@ -1,6 +1,7 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
+    <base href="/" />
     <meta http-equiv="Content-Type" content="text/html;charset=UTF-8" />
     <title>商品详细页面</title>
     <link rel="stylesheet" href="css/base.css" type="text/css" />
@@ -508,7 +509,7 @@
             <script type="text/javascript" src="js/lib.js"></script>
             <script type="text/javascript" src="js/163css.js"></script>
             <div id="preview">
-                <div class=jqzoom id="spec-n1" onClick="window.open('/')"><IMG height="350" src="images/img04.jpg" jqimg="images/img04.jpg" width="350">
+                <div class=jqzoom id="spec-n1" onClick="window.open('/')"><IMG height="350" src="http://192.168.109.161/${images[0]}" jqimg="http://192.168.109.161/${images[0]}" width="350">
                 </div>
                 <div id="spec-n5">
                     <div class=control id="spec-left">
@@ -516,18 +517,9 @@
                     </div>
                     <div id="spec-list">
                         <ul class="list-h">
-                            <li><img src="images/img01.jpg"> </li>
-                            <li><img src="images/img02.jpg"> </li>
-                            <li><img src="images/img03.jpg"> </li>
-                            <li><img src="images/img04.jpg"> </li>
-                            <li><img src="images/img01.jpg"> </li>
-                            <li><img src="images/img02.jpg"> </li>
-                            <li><img src="images/img03.jpg"> </li>
-                            <li><img src="images/img04.jpg"> </li>
-                            <li><img src="images/img01.jpg"> </li>
-                            <li><img src="images/img02.jpg"> </li>
-                            <li><img src="images/img03.jpg"> </li>
-                            <li><img src="images/img04.jpg"> </li>
+                            <#list images as image>
+                                <li><img src="http://192.168.109.161/${image}"> </li>
+                            </#list>
                         </ul>
                     </div>
                     <div class=control id="spec-right">
@@ -582,19 +574,19 @@
         <div class="shop_goods_show_right">
             <ul>
                 <li>
-                    <strong style="font-size:14px; font-weight:bold;">联想 K900 3G手机（炫酷银）WCDMA/GSM</strong>
+                    <strong style="font-size:14px; font-weight:bold;">${goods.gname}</strong>
                 </li>
                 <li>
                     <label>价格：</label>
-                    <span><strong>200.00</strong>元</span>
+                    <span><strong>${goods.gprice?string("￥#,###.##")}</strong>元</span>
                 </li>
                 <li>
                     <label>运费：</label>
                     <span>卖家承担运费</span>
                 </li>
                 <li>
-                    <label>累计售出：</label>
-                    <span>99件</span>
+                    <label>库存：</label>
+                    <span>${goods.gsave}</span>
                 </li>
                 <li>
                     <label>评价：</label>
@@ -733,7 +725,7 @@
         </div>
         <div class="shop_goods_bd_xiangqing_content clearfix">
             <div id="xiangqing_content_1" class="xiangqing_contents clearfix">
-                <p>商品详情----11111</p>
+                <p>${goods.ginfo}</p>
             </div>
             <div id="xiangqing_content_2" class="xiangqing_contents clearfix">
                 <p>商品评论----22222</p>
