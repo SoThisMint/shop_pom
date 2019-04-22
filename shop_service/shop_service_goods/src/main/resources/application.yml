@@ -37,6 +37,9 @@ spring:
     username: admin
     password: admin
     virtual-host: /admin
+  redis:
+    host: 192.168.109.161
+    password: root
 dubbo:
   application:
     name: goods_service
@@ -49,3 +52,5 @@ dubbo:
     check: false
 server:
   port: 9090
+mybatis-plus:
+  mapper-locations: classpath:com/qf/dao/mapper/*.xml

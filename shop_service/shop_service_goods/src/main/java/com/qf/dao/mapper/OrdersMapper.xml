@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.qf.dao.OrdersMapper">
+
+    <resultMap id="base_mapper" type="com.qf.entity.Orders">
+        <id column="id" property="id"></id>
+        <result column="oid" property="oid"></result>
+        <result column="allprice" property="allprice"></result>
+        <result column="status" property="status"></result>
+        <result column="uid" property="uid"></result>
+        <collection property="orderdetails" ofType="com.qf.entity.Orderdetail">
+            <id column="id" property="id"></id>
+            <result column="gid" property="gid"></result>
+            <result column="gimage" property="gimage"></result>
+            <result column="gname" property="gname"></result>
+            <result column="gprice" property="gprice"></result>
+            <result column="gnumber" property="gnumber"></result>
+            <result column="oid" property="oid"></result>
+        </collection>
+    </resultMap>
+
+    <select id="getOrdersListByUid" resultMap="base_mapper">
+        select * from orders o join orderdetail od on o.oid=od.oid where uid = #{uid}
+    </select>
+</mapper>

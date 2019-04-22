@@ -42,7 +42,9 @@
                         <td th:text="${g.gname}">Lorem ipsum dolor</td>
                         <td><img style="width: 60px;height: 50px;"
                                  th:src="|http://${ip}/${#strings.setSplit(g.gimage,'|')[0]}|" alt=""></td>
-                        <td th:text="${g.gprice}">Consectetur adipiscing</td>
+                        <td th:text="${'￥'+#numbers.formatDecimal(g.gprice,0,'COMMA',2,'POINT')}">Consectetur
+                            adipiscing
+                        </td>
                         <td th:text="${g.gsave}">Donec tortor diam</td>
                         <td>
                             <!-- Icons --> <a href="#" title="Edit"><img
